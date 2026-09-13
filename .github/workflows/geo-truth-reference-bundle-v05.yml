@@ -23,15 +23,21 @@ jobs:
 
       - name: Install geo dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y unrar-free
           python -m pip install --upgrade pip
-          python -m pip install requests beautifulsoup4 pyshp shapely pyproj
+          python -m pip install requests beautifulsoup4 pyshp shapely pyproj rarfile
 
       - name: Build official geo truth bundle
         id: build
         continue-on-error: true
+        shell: bash
         run: |
+          set +e
           python scripts/build_geo_truth_reference_bundle_v05.py
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
 
       - name: Upload geo truth evidence
         if: always()

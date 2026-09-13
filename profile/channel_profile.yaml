@@ -1,0 +1,17 @@
+profile_id: FDM360
+profile_name: Fronteiras do Mundo 360
+status: LEARNING_CALIBRATION
+style_isolation: true
+performance_memory_scope: PROFILE_SPECIFIC
+reference_library_scope: PROFILE_SPECIFIC
+cross_channel_contamination: BLOCKED
+primary_format:
+  - reels
+  - shorts
+  - tiktok
+core_dependency: agente-youtube
+canonical_repository: luisfabricioviana-dev/Fronteiras-do-Mundo-360
+principles:
+  - NEW_VIDEO_NOT_NEW_RULE
+  - CORE_SHARED_NOT_PROFILE_SPECIFIC
+  - MEMORY_ONLY_NOT_CANONICAL_IMPLEMENTED

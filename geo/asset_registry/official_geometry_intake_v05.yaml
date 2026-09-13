@@ -58,7 +58,11 @@ countries:
     verification_boundary_feature_count: 1
     derivation: dissolve_official_igm_province_polygons
 pre_render_geo_truth: PASS
-post_render_geo_truth: NOT_RUN
+post_render_geo_truth: PASS
+post_render_geo_truth_render:
+  file: FDM360_US_PRESENCE_v05_1_GEO_MASTER_1080x1920.mp4
+  sha256: eb508e4f0bb74fc1c0cd16a7afbc0a7c5b40a88c58aa8a07787bdeccff1f3066
+  qa_record: cases/us_presence_south_america/V05_1_POST_RENDER_GEO_QA.md
 publication_ready: false
 evidence_artifact:
   workflow_run_id: 34774202581

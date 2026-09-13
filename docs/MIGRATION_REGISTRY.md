@@ -25,15 +25,17 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Motion Coherence + Geo Anchor QA profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Disputed Territory Gate profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Geo Repair Router profile rules | FDM360 | CANONICAL_IMPLEMENTED |
-| STRAIT_REVEAL | FDM360 | CANONICAL_SPEC |
-| MILITARY_BASE_REVEAL | FDM360 | CANONICAL_SPEC |
-| RESOURCE_CORRIDOR | FDM360 | CANONICAL_SPEC |
-| PORT_PROJECTION | FDM360 | CANONICAL_SPEC |
-| SUBMARINE_CABLE_ROUTE | FDM360 | CANONICAL_SPEC |
-| DISPUTED_BORDER | FDM360 | CANONICAL_SPEC |
-| ISLAND_STRATEGIC_REVEAL | FDM360 | CANONICAL_SPEC |
+| STRAIT_REVEAL | FDM360 | CANONICAL_IMPLEMENTED |
+| MILITARY_BASE_REVEAL | FDM360 | CANONICAL_IMPLEMENTED |
+| RESOURCE_CORRIDOR | FDM360 | CANONICAL_IMPLEMENTED |
+| PORT_PROJECTION | FDM360 | CANONICAL_IMPLEMENTED |
+| SUBMARINE_CABLE_ROUTE | FDM360 | CANONICAL_IMPLEMENTED |
+| DISPUTED_BORDER | FDM360 | CANONICAL_IMPLEMENTED |
+| ISLAND_STRATEGIC_REVEAL | FDM360 | CANONICAL_IMPLEMENTED |
 | Reference Style Library entries | FDM360 | CANONICAL_IMPLEMENTED |
 | Performance Memory | FDM360 | CANONICAL_IMPLEMENTED |
+| FDM360 post-render semantic integrity profile | FDM360 | CANONICAL_IMPLEMENTED |
+| FDM360 publication gate + repair binding | FDM360 | CANONICAL_IMPLEMENTED |
 | POST_RENDER_SEMANTIC_INTEGRITY | agente-youtube | SHARED_CORE |
 | Render Observation Adapter | agente-youtube | SHARED_CORE |
 | SEMANTIC_BINDING_INTEGRITY_v1 | agente-youtube | SHARED_CORE |
@@ -50,8 +52,12 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `geo/asset_registry/fdm360_geo_asset_registry.py`
 - `geo/qa/fdm360_geo_qa.py`
 - `geo/repair/repair_router.py`
+- `geo/templates/template_registry.py`
+- `audiovisual/post_render/fdm360_post_render_profile.py`
 - `regressions/fixtures/us_presence_south_america_v1.json`
 - `tests/test_geo_motion_truth_stack.py`
+- `tests/test_semantic_geo_templates.py`
+- `tests/test_fdm360_post_render_profile.py`
 - `.github/workflows/geo-regression.yml`
 - `references/style_library/README.md`
 - `references/style_library/FDM360_REF_STYLE_001.yaml`
@@ -63,11 +69,13 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ## Notes
 
-The semantic template family remains specification-level because the connector blocked the consolidated template manifest write. Do not mark those templates implemented until a persisted machine-readable registry and regression coverage exist.
+The semantic template family is now machine-readable and covered by regression tests. Templates cannot bypass verified geo anchors, Truth Locks or Geo QA.
+
+The FDM360 post-render layer is a profile-specific specialization over shared audiovisual integrity concepts. Generic mechanisms remain in `agente-youtube`; this repository stores only FDM360 bindings, gates and regression behavior.
 
 Reference styles 003–014 are registered as `UNRECOVERED`; their missing metadata must not be fabricated.
 
-GitHub Actions workflow/status was not exposed for the latest commits at the time of this update. Therefore repository persistence and test definitions are confirmed, but CI pass status is not yet claimed.
+The existing workflow runs `pytest -q`, so all repository tests are included in CI configuration. GitHub Actions execution/status still needs to be observed before claiming a passing run.
 
 ## Promotion rule
 

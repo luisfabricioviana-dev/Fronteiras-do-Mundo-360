@@ -4,6 +4,7 @@ from pathlib import Path
 from geo.asset_registry.fdm360_geo_asset_registry import GeoAsset, GeoAssetRegistry
 from geo.motion.fdm360_geo_motion_profile import GeoBeat, MotionFamily, RenderRoute, compile_motion_plan
 from geo.qa.fdm360_geo_qa import VisualGeoElement, camera_meaning_integrity, motion_coherence_and_anchor_qa
+from geo.repair.repair_router import route_repairs
 from geo.truth_locks.fdm360_truth_locks import GeoClaim, geospatial_truth_lock, military_event_truth_lock
 
 
@@ -69,6 +70,19 @@ def test_geo_asset_registry_rejects_unverified_disputed_asset():
         assert "must be verified" in str(exc)
     else:
         raise AssertionError("Expected ValueError")
+
+
+def test_repair_router_reanchors_and_recompiles():
+    plan = route_repairs(["label_ecuador:anchor_mismatch", "camera_semantic_target_mismatch"])
+    assert "REANCHOR" in plan.actions
+    assert "RECOMPILE_CAMERA_PATH" in plan.actions
+    assert plan.hold_release is False
+
+
+def test_repair_router_holds_release_for_unverified_asset():
+    plan = route_repairs(["unverified_asset"])
+    assert "REPLACE_ASSET" in plan.actions
+    assert plan.hold_release is True
 
 
 def test_regression_fixture_preserves_editorial_lock():

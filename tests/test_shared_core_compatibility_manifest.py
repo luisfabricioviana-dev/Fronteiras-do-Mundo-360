@@ -11,12 +11,12 @@ def load_manifest():
 
 def test_shared_core_lock_is_pinned_to_green_ci():
     data = load_manifest()
-    assert data["verified_core_commit"]
-    assert data["verified_ci_run"] == 28
+    assert data["verified_core_commit"] == "97fb894e61d93e75270f3b9c95cb69e257616ed2"
+    assert data["verified_ci_run"] == 34
     assert data["verified_ci_result"] == "SUCCESS"
 
 
-def test_resolved_post_render_capabilities_point_to_shared_core_paths():
+def test_all_required_shared_core_capabilities_are_resolved():
     data = load_manifest()
     capabilities = data["capabilities"]
     required = [
@@ -26,6 +26,8 @@ def test_resolved_post_render_capabilities_point_to_shared_core_paths():
         "Camera-Meaning Integrity",
         "Iconography Truth Gate",
         "AGENT_CAPABILITY_RUNTIME_v1",
+        "THEME_TO_FINAL_VIDEO_RUNTIME_v1",
+        "CROSS_AGENT_LEARNING_CORE_v1",
     ]
     for capability in required:
         item = capabilities[capability]
@@ -33,11 +35,10 @@ def test_resolved_post_render_capabilities_point_to_shared_core_paths():
         assert item["path"].startswith("contracts/")
 
 
-def test_unresolved_shared_core_is_explicit():
+def test_no_unresolved_shared_core_remains():
     data = load_manifest()
-    capabilities = data["capabilities"]
-    assert capabilities["THEME_TO_FINAL_VIDEO_RUNTIME_v1"]["status"] == "UNRESOLVED_SHARED_CORE"
-    assert capabilities["CROSS_AGENT_LEARNING_CORE_v1"]["status"] == "UNRESOLVED_SHARED_CORE"
+    statuses = {item["status"] for item in data["capabilities"].values()}
+    assert "UNRESOLVED_SHARED_CORE" not in statuses
 
 
 def test_governance_blocks_local_duplication():

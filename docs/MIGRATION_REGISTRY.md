@@ -9,7 +9,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `NEEDS_PORTING` — conhecido no projeto, ainda não materializado aqui.
 - `SHARED_CORE` — pertence ao `agente-youtube`; aqui deve existir apenas configuração/extensão.
 
-## Estado inicial — 2026-09-13
+## Estado — 2026-09-13
 
 | Capability / Contract | Target | Status |
 |---|---|---|
@@ -17,21 +17,21 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Visual Bible | FDM360 | CANONICAL_SPEC |
 | Narrative rules | FDM360 | CANONICAL_SPEC |
 | Production preferences | FDM360 | CANONICAL_SPEC |
-| US Presence South America regression case | FDM360 | CANONICAL_SPEC |
-| Geo Motion profile configuration | FDM360 | NEEDS_PORTING |
-| Geospatial Truth Lock config/fixtures | FDM360 | NEEDS_PORTING |
-| Military Event Truth Lock config/fixtures | FDM360 | NEEDS_PORTING |
-| Geo Asset Registry | FDM360 | NEEDS_PORTING |
-| Motion Coherence + Geo Anchor QA profile rules | FDM360 | NEEDS_PORTING |
-| Disputed Territory Gate profile rules | FDM360 | NEEDS_PORTING |
+| US Presence South America regression case | FDM360 | CANONICAL_IMPLEMENTED |
+| Geo Motion profile configuration | FDM360 | CANONICAL_IMPLEMENTED |
+| Geospatial Truth Lock config/fixtures | FDM360 | CANONICAL_IMPLEMENTED |
+| Military Event Truth Lock config/fixtures | FDM360 | CANONICAL_IMPLEMENTED |
+| Geo Asset Registry | FDM360 | CANONICAL_IMPLEMENTED |
+| Motion Coherence + Geo Anchor QA profile rules | FDM360 | CANONICAL_IMPLEMENTED |
+| Disputed Territory Gate profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Geo Repair Router profile rules | FDM360 | NEEDS_PORTING |
-| STRAIT_REVEAL | FDM360 | NEEDS_PORTING |
-| MILITARY_BASE_REVEAL | FDM360 | NEEDS_PORTING |
-| RESOURCE_CORRIDOR | FDM360 | NEEDS_PORTING |
-| PORT_PROJECTION | FDM360 | NEEDS_PORTING |
-| SUBMARINE_CABLE_ROUTE | FDM360 | NEEDS_PORTING |
-| DISPUTED_BORDER | FDM360 | NEEDS_PORTING |
-| ISLAND_STRATEGIC_REVEAL | FDM360 | NEEDS_PORTING |
+| STRAIT_REVEAL | FDM360 | CANONICAL_SPEC |
+| MILITARY_BASE_REVEAL | FDM360 | CANONICAL_SPEC |
+| RESOURCE_CORRIDOR | FDM360 | CANONICAL_SPEC |
+| PORT_PROJECTION | FDM360 | CANONICAL_SPEC |
+| SUBMARINE_CABLE_ROUTE | FDM360 | CANONICAL_SPEC |
+| DISPUTED_BORDER | FDM360 | CANONICAL_SPEC |
+| ISLAND_STRATEGIC_REVEAL | FDM360 | CANONICAL_SPEC |
 | Reference Style Library entries | FDM360 | NEEDS_PORTING |
 | Performance Memory | FDM360 | NEEDS_PORTING |
 | POST_RENDER_SEMANTIC_INTEGRITY | agente-youtube | SHARED_CORE |
@@ -42,6 +42,20 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | CROSS_AGENT_LEARNING_CORE_v1 | shared ecosystem | SHARED_CORE |
 | THEME_TO_FINAL_VIDEO_RUNTIME_v1 | agente-youtube | SHARED_CORE |
 | AGENT_CAPABILITY_RUNTIME_v1 | shared ecosystem | SHARED_CORE |
+
+## Implemented artifacts
+
+- `geo/motion/fdm360_geo_motion_profile.py`
+- `geo/truth_locks/fdm360_truth_locks.py`
+- `geo/asset_registry/fdm360_geo_asset_registry.py`
+- `geo/qa/fdm360_geo_qa.py`
+- `regressions/fixtures/us_presence_south_america_v1.json`
+- `tests/test_geo_motion_truth_stack.py`
+- `.github/workflows/geo-regression.yml`
+
+## Notes
+
+The semantic template family remains specification-level because the connector blocked the consolidated template manifest write. Do not mark those templates implemented until a persisted machine-readable registry and regression coverage exist.
 
 ## Promotion rule
 

@@ -1,6 +1,7 @@
 {
   "case_id": "FDM360_US_PRESENCE_SOUTH_AMERICA_001",
   "continuous_camera_required": true,
+  "single_geo_scene_required": true,
   "targets": [
     {"id": "colombia", "expected_anchor": "colombia"},
     {"id": "ecuador", "expected_anchor": "ecuador"},

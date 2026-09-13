@@ -1,17 +1,42 @@
 bundle: GEO_TRUTH_REFERENCE_BUNDLE_v05
-status: BLOCK
+status: VERIFIED
+source:
+  authority: IGN_IDEP
+  service: https://www.idep.gob.pe/geoportal/rest/services/DATOS_GEOESPACIALES/CENTROS_POBLADOS/FeatureServer/0
+  selected_layer: Capital Departamental
+  normalized_crs: EPSG:4326
+  raw_file_sha256: 02e45f4af4f28181818c8c57ab8d9fef5c9adaa629528798a7d18b835292b202
 anchors:
   iquitos:
-    authority: IGN_IDEP
-    source_service: CENTROS_POBLADOS
-    selected_layer: Capital Departamental
-    source_crs: EPSG:3857
-    feature_status: QUERY_PENDING
-    anchor_verified: false
+    feature_status: VERIFIED_UNIQUE
+    anchor_verified: true
+    candidate_count: 1
+    longitude: -73.25946289099994
+    latitude: -3.749269530999925
+    source_properties:
+      CAP_DEP: IQUITOS
+      CAT_POBLAD: CIUDAD
+      codigo: '1601010001'
+      DEP: LORETO
+      FUENTE: IGN
+      F_CODE: ZD045
+      OBJECTID: 19
+      X_COORD: -73.25946289
+      Y_COORD: -3.74926953
   callao:
-    authority: IGN_IDEP
-    source_service: TEMA_BASE_PUERTO
-    selected_layer: Puerto
-    source_crs: EPSG:24878
-    feature_status: QUERY_PENDING
-    anchor_verified: false
+    feature_status: VERIFIED_UNIQUE
+    anchor_verified: true
+    candidate_count: 1
+    longitude: -77.11477973299998
+    latitude: -12.047523470999977
+    source_properties:
+      CAP_DEP: PROV. CONSTITUCIONAL CALLAO
+      CAT_POBLAD: CIUDAD
+      codigo: '0701010001'
+      DEP: LIMA
+      FUENTE: IGN
+      F_CODE: ZD045
+      OBJECTID: 24
+      X_COORD: -77.11477973
+      Y_COORD: -12.04752347
+containment_in_peru: PASS

@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - scripts/build_geo_truth_reference_bundle_v05.py
+      - scripts/run_geo_truth_reference_bundle_v05.py
       - .github/workflows/geo-truth-reference-bundle-v05.yml
       - geo/asset_registry/official_geometry_intake_v05.yaml
       - geo/asset_registry/peru_anchor_intake_v05.yaml
@@ -34,7 +35,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          python scripts/build_geo_truth_reference_bundle_v05.py
+          python scripts/run_geo_truth_reference_bundle_v05.py
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0

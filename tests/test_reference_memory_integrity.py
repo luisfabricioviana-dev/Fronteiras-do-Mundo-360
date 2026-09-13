@@ -41,3 +41,15 @@ def test_performance_memory_is_profile_specific_and_requires_promotion():
 def test_continuous_camera_rule_is_persistent():
     text = read_text("performance/PERFORMANCE_MEMORY.md")
     assert "movimento de câmera contínuo" in text
+
+
+def test_evolution_cycle_is_persistent():
+    text = read_text("performance/PERFORMANCE_MEMORY.md")
+    assert "FIXTURE -> HYPOTHESIS -> RENDER OBSERVATION -> QA -> RESULT -> LEARNING CANDIDATE -> REGRESSION -> VALIDATION" in text
+    assert "uma observação isolada permanece `CANDIDATE`" in text
+    assert "falha nova vira fixture antes de virar regra geral" in text
+
+
+def test_learning_layers_remain_separate():
+    text = read_text("performance/PERFORMANCE_MEMORY.md")
+    assert "QA de render, performance, referência de estilo e identidade do canal são camadas distintas" in text

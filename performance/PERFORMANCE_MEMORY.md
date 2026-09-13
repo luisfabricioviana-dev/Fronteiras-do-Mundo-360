@@ -24,3 +24,13 @@ Escopo: PROFILE-SPECIFIC.
 `CANDIDATE -> VALIDATED -> PROMOTED`
 
 A promoção exige evidência suficiente para evitar overfitting a um único vídeo.
+
+## Ciclo de evolução
+`FIXTURE -> HYPOTHESIS -> RENDER OBSERVATION -> QA -> RESULT -> LEARNING CANDIDATE -> REGRESSION -> VALIDATION`
+
+Regras:
+- uma observação isolada permanece `CANDIDATE`;
+- validação exige recorrência e regressão verde;
+- promoção exige validação e evidência repetida ou aprovação explícita;
+- falha nova vira fixture antes de virar regra geral;
+- QA de render, performance, referência de estilo e identidade do canal são camadas distintas.

@@ -1,0 +1,31 @@
+id: FDM360_REF_STYLE_001
+name: SATELLITE_GEO_CONFLICT_EXPLAINER
+status: REFERENCE_ONLY
+source: null
+provenance_status: PARTIAL
+governance:
+  profile_specific: true
+  promote_to_identity_automatically: false
+  new_video_creates_rule: false
+metadata:
+  duration_seconds: 68.52
+  resolution: 720x1280
+  fps: 30
+  audio_lufs_integrated: -14.69
+  audio_lra_lu: 8.5
+  audio_true_peak_observed_dbtp: 0.11
+  audio_true_peak_recommended_max_dbtp: -1.0
+style_signals:
+  - continuous_satellite_map
+  - causal_conflict_explanation
+  - documentary_evidence
+  - chokepoint_reveal
+  - statistical_payoff
+hard_locks:
+  - satellite_basemap
+  - continuous_spatial_sequence
+  - territorial_overlays
+  - semantic_camera_motion
+  - persistent_labels
+  - evidence_cards
+  - return_to_map

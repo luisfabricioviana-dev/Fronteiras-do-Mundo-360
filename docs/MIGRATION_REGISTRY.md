@@ -44,8 +44,8 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Camera-Meaning Integrity | agente-youtube | SHARED_CORE_RESOLVED |
 | Iconography Truth Gate | agente-youtube | SHARED_CORE_RESOLVED |
 | AGENT_CAPABILITY_RUNTIME_v1 | agente-youtube | SHARED_CORE_RESOLVED |
-| CROSS_AGENT_LEARNING_CORE_v1 | agente-youtube | SHARED_CORE_UNRESOLVED |
-| THEME_TO_FINAL_VIDEO_RUNTIME_v1 | agente-youtube | SHARED_CORE_UNRESOLVED |
+| CROSS_AGENT_LEARNING_CORE_v1 | agente-youtube | SHARED_CORE_RESOLVED |
+| THEME_TO_FINAL_VIDEO_RUNTIME_v1 | agente-youtube | SHARED_CORE_RESOLVED |
 
 ## Implemented artifacts
 
@@ -81,17 +81,18 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ### FDM360
 - Workflow: `FDM360 Geo Regression`
-- Run: `26`
-- Commit: `cfb1d0d52a891d72dcdf5a1d46aba08e159f0808`
+- Run: `31`
+- Commit: `1d69b9f39bd5f6af7de031df7bde725738c42331`
 - Result: `SUCCESS`
 - `pytest -q`: `SUCCESS`
 
 ### Shared core (`agente-youtube`)
 - Workflow: `reference-regression`
-- Run: `28`
-- Commit: `e5163cb932ac1bf6128ca00988babfb06e3c2abf`
+- Run: `34`
+- Commit: `97fb894e61d93e75270f3b9c95cb69e257616ed2`
 - Result: `SUCCESS`
 - Complete contract regression suite: `SUCCESS`
+- Resolved in this lock: post-render semantic integrity, render observation, semantic binding, camera meaning, iconography truth, agent capability runtime, theme-to-final-video runtime, and governed cross-agent learning.
 
 ## Notes
 
@@ -101,7 +102,7 @@ The semantic template family is machine-readable and covered by regression tests
 
 The FDM360 post-render layer is a profile-specific specialization over shared audiovisual integrity concepts. Generic mechanisms remain in `agente-youtube`; this repository stores only FDM360 bindings, gates and regression behavior.
 
-`integration/shared_core_compatibility.json` pins the profile to a known-green shared-core commit and explicitly distinguishes resolved from unresolved shared capabilities.
+`integration/shared_core_compatibility.json` pins the profile to a known-green shared-core commit. All declared shared-core dependencies are now resolved.
 
 Reference styles 003–014 are registered as `UNRECOVERED`; their missing metadata must not be fabricated.
 

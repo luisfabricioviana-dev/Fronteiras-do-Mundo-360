@@ -7,7 +7,8 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `CANONICAL_IMPLEMENTED` — persistido e validado no repositório.
 - `CANONICAL_SPEC` — persistido como especificação, ainda sem implementação/testes completos.
 - `NEEDS_PORTING` — conhecido no projeto, ainda não materializado aqui.
-- `SHARED_CORE` — pertence ao `agente-youtube`; aqui deve existir apenas configuração/extensão.
+- `SHARED_CORE_RESOLVED` — pertence ao `agente-youtube`, já materializado e validado no core compartilhado.
+- `SHARED_CORE_UNRESOLVED` — pertence ao core compartilhado, mas ainda não foi materializado/validado.
 
 ## Estado — 2026-09-13
 
@@ -36,14 +37,15 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Performance Memory | FDM360 | CANONICAL_IMPLEMENTED |
 | FDM360 post-render semantic integrity profile | FDM360 | CANONICAL_IMPLEMENTED |
 | FDM360 publication gate + repair binding | FDM360 | CANONICAL_IMPLEMENTED |
-| POST_RENDER_SEMANTIC_INTEGRITY | agente-youtube | SHARED_CORE |
-| Render Observation Adapter | agente-youtube | SHARED_CORE |
-| SEMANTIC_BINDING_INTEGRITY_v1 | agente-youtube | SHARED_CORE |
-| Camera-Meaning Integrity | agente-youtube | SHARED_CORE |
-| Iconography Truth Gate | agente-youtube | SHARED_CORE |
-| CROSS_AGENT_LEARNING_CORE_v1 | shared ecosystem | SHARED_CORE |
-| THEME_TO_FINAL_VIDEO_RUNTIME_v1 | agente-youtube | SHARED_CORE |
-| AGENT_CAPABILITY_RUNTIME_v1 | shared ecosystem | SHARED_CORE |
+| Shared-core compatibility lock | FDM360 | CANONICAL_IMPLEMENTED |
+| POST_RENDER_SEMANTIC_INTEGRITY | agente-youtube | SHARED_CORE_RESOLVED |
+| Render Observation Adapter | agente-youtube | SHARED_CORE_RESOLVED |
+| SEMANTIC_BINDING_INTEGRITY_v1 | agente-youtube | SHARED_CORE_RESOLVED |
+| Camera-Meaning Integrity | agente-youtube | SHARED_CORE_RESOLVED |
+| Iconography Truth Gate | agente-youtube | SHARED_CORE_RESOLVED |
+| AGENT_CAPABILITY_RUNTIME_v1 | agente-youtube | SHARED_CORE_RESOLVED |
+| CROSS_AGENT_LEARNING_CORE_v1 | agente-youtube | SHARED_CORE_UNRESOLVED |
+| THEME_TO_FINAL_VIDEO_RUNTIME_v1 | agente-youtube | SHARED_CORE_UNRESOLVED |
 
 ## Implemented artifacts
 
@@ -72,15 +74,24 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `references/style_library/UNRECOVERED_REFERENCES.yaml`
 - `performance/PERFORMANCE_MEMORY.md`
 - `tests/test_reference_memory_integrity.py`
+- `integration/shared_core_compatibility.json`
+- `tests/test_shared_core_compatibility_manifest.py`
 
 ## CI evidence
 
+### FDM360
 - Workflow: `FDM360 Geo Regression`
 - Run: `26`
 - Commit: `cfb1d0d52a891d72dcdf5a1d46aba08e159f0808`
 - Result: `SUCCESS`
 - `pytest -q`: `SUCCESS`
-- Fix applied after run 25: repository root added to `PYTHONPATH` so `geo` and `audiovisual` modules are importable in GitHub Actions.
+
+### Shared core (`agente-youtube`)
+- Workflow: `reference-regression`
+- Run: `28`
+- Commit: `e5163cb932ac1bf6128ca00988babfb06e3c2abf`
+- Result: `SUCCESS`
+- Complete contract regression suite: `SUCCESS`
 
 ## Notes
 
@@ -90,8 +101,10 @@ The semantic template family is machine-readable and covered by regression tests
 
 The FDM360 post-render layer is a profile-specific specialization over shared audiovisual integrity concepts. Generic mechanisms remain in `agente-youtube`; this repository stores only FDM360 bindings, gates and regression behavior.
 
+`integration/shared_core_compatibility.json` pins the profile to a known-green shared-core commit and explicitly distinguishes resolved from unresolved shared capabilities.
+
 Reference styles 003–014 are registered as `UNRECOVERED`; their missing metadata must not be fabricated.
 
 ## Promotion rule
 
-Nenhum item `NEEDS_PORTING` muda para `CANONICAL_IMPLEMENTED` sem fixture/teste correspondente quando o comportamento for executável ou verificável.
+Nenhum item `NEEDS_PORTING` ou `SHARED_CORE_UNRESOLVED` muda para implementado/resolvido sem fixture/teste correspondente e evidência de CI quando o comportamento for executável ou verificável.

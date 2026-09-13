@@ -32,8 +32,8 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | SUBMARINE_CABLE_ROUTE | FDM360 | CANONICAL_SPEC |
 | DISPUTED_BORDER | FDM360 | CANONICAL_SPEC |
 | ISLAND_STRATEGIC_REVEAL | FDM360 | CANONICAL_SPEC |
-| Reference Style Library entries | FDM360 | NEEDS_PORTING |
-| Performance Memory | FDM360 | NEEDS_PORTING |
+| Reference Style Library entries | FDM360 | CANONICAL_IMPLEMENTED |
+| Performance Memory | FDM360 | CANONICAL_IMPLEMENTED |
 | POST_RENDER_SEMANTIC_INTEGRITY | agente-youtube | SHARED_CORE |
 | Render Observation Adapter | agente-youtube | SHARED_CORE |
 | SEMANTIC_BINDING_INTEGRITY_v1 | agente-youtube | SHARED_CORE |
@@ -53,10 +53,19 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `regressions/fixtures/us_presence_south_america_v1.json`
 - `tests/test_geo_motion_truth_stack.py`
 - `.github/workflows/geo-regression.yml`
+- `references/style_library/README.md`
+- `references/style_library/FDM360_REF_STYLE_001.yaml`
+- `references/style_library/FDM360_REF_STYLE_002.yaml`
+- `references/style_library/FDM360_REF_STYLE_015.yaml`
+- `references/style_library/UNRECOVERED_REFERENCES.yaml`
+- `performance/PERFORMANCE_MEMORY.md`
+- `tests/test_reference_memory_integrity.py`
 
 ## Notes
 
 The semantic template family remains specification-level because the connector blocked the consolidated template manifest write. Do not mark those templates implemented until a persisted machine-readable registry and regression coverage exist.
+
+Reference styles 003–014 are registered as `UNRECOVERED`; their missing metadata must not be fabricated.
 
 GitHub Actions workflow/status was not exposed for the latest commits at the time of this update. Therefore repository persistence and test definitions are confirmed, but CI pass status is not yet claimed.
 

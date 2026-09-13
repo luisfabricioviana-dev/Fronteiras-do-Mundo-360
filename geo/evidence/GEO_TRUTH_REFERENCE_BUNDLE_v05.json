@@ -1,0 +1,85 @@
+{
+  "bundle": "GEO_TRUTH_REFERENCE_BUNDLE_v05",
+  "normalized_crs": "EPSG:4326",
+  "status": "PASS",
+  "pre_render_geo_truth": "PASS",
+  "post_render_geo_truth": "NOT_RUN",
+  "publication_ready": false,
+  "checks": {
+    "countries_complete": true,
+    "all_country_geometries_valid": true,
+    "hashes_complete": true,
+    "anchors_verified_exactly_once": true,
+    "anchors_contained_in_peru": true,
+    "normalized_crs": "EPSG:4326"
+  },
+  "errors": [],
+  "countries": {
+    "brazil": {
+      "authority": "IBGE",
+      "raw_file_sha256": "e84c4d4ab199e646b5a180e0f5b7a991fe4c3d424dff8ae3dcf4495992c128d5",
+      "native_crs": "EPSG:4674",
+      "normalized_geometry_sha256": "ef57940d055ee4b7647a2b0d85e9f9e3fac5eeb40966dae50dea9824e730240f",
+      "geometry_loaded": true,
+      "valid": true
+    },
+    "colombia": {
+      "authority": "DANE — Marco Geoestadístico Nacional 2025",
+      "source_service": "https://geoportal.dane.gov.co/mparcgis/rest/services/Divipola/Serv_DIVIPOLA_MGN_2025/FeatureServer/319",
+      "raw_file_sha256": "c018afcf84038be7e88b91430c3bf98fc027c1d6fe5722ff0e9372630649b5e3",
+      "native_crs": "EPSG:3857",
+      "normalized_geometry_sha256": "f6aefb92519563b3ec20a0e8265e178950a716269f038953a21097db9da5eb77",
+      "geometry_loaded": true,
+      "valid": true,
+      "feature_count_raw": 33,
+      "derivation": "dissolve_all_official_polygons"
+    },
+    "peru": {
+      "authority": "IGN / IDEP",
+      "raw_file_sha256": "7e32825a15d664bb37711265abe17b28506a96d48530aaa3590179317e0c6bd3",
+      "native_crs": "EPSG:4326",
+      "normalized_geometry_sha256": "cde8aeea3f3ce869f56f474e2c8678c989607080e5e2855ef3f01100be9ab04e",
+      "geometry_loaded": true,
+      "valid": true
+    },
+    "ecuador": {
+      "authority": "IGM Ecuador",
+      "raw_file_sha256": "2e78f40bb83dc0d11a74e6abc056166a51b4b4478f2ecfcacddfd16bdeb67808",
+      "verification_boundary_raw_sha256": "b9f2cb04a3e43e8308d7acf7174eb6c1bb3f503049ddf790bce608ffe0293c0b",
+      "native_crs": "EPSG:4326",
+      "normalized_geometry_sha256": "f21a2f9d40130f4073cbe54f1477a7712aa6558c0b6681aa7d7f96f2c17c7feb",
+      "geometry_loaded": true,
+      "valid": true,
+      "feature_count_raw": 32,
+      "verification_boundary_feature_count": 1
+    }
+  },
+  "anchors": {
+    "callao": {
+      "anchor_verified": true,
+      "candidate_count": 1,
+      "lon": -77.11477973299998,
+      "lat": -12.047523470999977,
+      "raw_file_sha256": "02e45f4af4f28181818c8c57ab8d9fef5c9adaa629528798a7d18b835292b202",
+      "CAP_DEP": "PROV. CONSTITUCIONAL CALLAO",
+      "FUENTE": "IGN"
+    },
+    "iquitos": {
+      "anchor_verified": true,
+      "candidate_count": 1,
+      "lon": -73.25946289099994,
+      "lat": -3.749269530999925,
+      "raw_file_sha256": "02e45f4af4f28181818c8c57ab8d9fef5c9adaa629528798a7d18b835292b202",
+      "CAP_DEP": "IQUITOS",
+      "FUENTE": "IGN"
+    }
+  },
+  "workflow_evidence": {
+    "workflow": "FDM360 Geo Truth Reference Bundle v05",
+    "run_id": 34774202581,
+    "artifact_id": 10322718276,
+    "artifact_digest": "sha256:83ad29718259efdba20308e55e5c7fcacf95bba4dcde8886c78ae707e15d32ff",
+    "head_commit": "0c1a0ce48efa587f84fbd9d670f88ad45cd0addb",
+    "result": "SUCCESS"
+  }
+}

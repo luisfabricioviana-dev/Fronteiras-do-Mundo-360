@@ -1,0 +1,49 @@
+name: FDM360 Geo Truth Reference Bundle v05
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/build_geo_truth_reference_bundle_v05.py
+      - .github/workflows/geo-truth-reference-bundle-v05.yml
+      - geo/asset_registry/official_geometry_intake_v05.yaml
+      - geo/asset_registry/peru_anchor_intake_v05.yaml
+
+jobs:
+  build-geo-truth-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install geo dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests beautifulsoup4 pyshp shapely pyproj
+
+      - name: Build official geo truth bundle
+        id: build
+        continue-on-error: true
+        run: |
+          python scripts/build_geo_truth_reference_bundle_v05.py
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Upload geo truth evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: GEO_TRUTH_REFERENCE_BUNDLE_v05
+          path: build/geo_truth_v05/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Enforce PRE_RENDER_GEO_TRUTH
+        if: steps.build.outputs.exit_code != '0'
+        run: |
+          echo "PRE_RENDER_GEO_TRUTH=BLOCK"
+          exit 1

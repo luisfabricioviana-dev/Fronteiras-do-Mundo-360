@@ -13,10 +13,10 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 | Capability / Contract | Target | Status |
 |---|---|---|
-| FDM360 channel profile | FDM360 | CANONICAL_SPEC |
-| Visual Bible | FDM360 | CANONICAL_SPEC |
-| Narrative rules | FDM360 | CANONICAL_SPEC |
-| Production preferences | FDM360 | CANONICAL_SPEC |
+| FDM360 channel profile | FDM360 | CANONICAL_IMPLEMENTED |
+| Visual Bible | FDM360 | CANONICAL_IMPLEMENTED |
+| Narrative rules | FDM360 | CANONICAL_IMPLEMENTED |
+| Production preferences | FDM360 | CANONICAL_IMPLEMENTED |
 | US Presence South America regression case | FDM360 | CANONICAL_IMPLEMENTED |
 | Geo Motion profile configuration | FDM360 | CANONICAL_IMPLEMENTED |
 | Geospatial Truth Lock config/fixtures | FDM360 | CANONICAL_IMPLEMENTED |
@@ -47,6 +47,12 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ## Implemented artifacts
 
+- `profile/channel_profile.yaml`
+- `profile/visual_bible.yaml`
+- `profile/narrative_rules.yaml`
+- `profile/production_preferences.yaml`
+- `tests/test_profile_core_contract.py`
+- `tests/test_profile_narrative_contract.py`
 - `geo/motion/fdm360_geo_motion_profile.py`
 - `geo/truth_locks/fdm360_truth_locks.py`
 - `geo/asset_registry/fdm360_geo_asset_registry.py`
@@ -69,7 +75,9 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ## Notes
 
-The semantic template family is now machine-readable and covered by regression tests. Templates cannot bypass verified geo anchors, Truth Locks or Geo QA.
+The profile specification files are now covered by regression tests, so changes to style isolation, map continuity, visual language and narrative continuity are no longer documentation-only.
+
+The semantic template family is machine-readable and covered by regression tests. Templates cannot bypass verified geo anchors, Truth Locks or Geo QA.
 
 The FDM360 post-render layer is a profile-specific specialization over shared audiovisual integrity concepts. Generic mechanisms remain in `agente-youtube`; this repository stores only FDM360 bindings, gates and regression behavior.
 

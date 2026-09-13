@@ -1,0 +1,12 @@
+id: FDM360_REF_STYLE_002
+name: SATELLITE_GEO_CLIMATE_MECHANISM_EXPLAINER
+status: REFERENCE_ONLY
+source: snapinsta-1789087865655
+provenance_status: PARTIAL
+governance:
+  profile_specific: true
+  promote_to_identity_automatically: false
+  new_video_creates_rule: false
+metadata: {}
+style_signals: []
+hard_locks: []

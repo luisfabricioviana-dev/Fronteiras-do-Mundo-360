@@ -73,17 +73,24 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `performance/PERFORMANCE_MEMORY.md`
 - `tests/test_reference_memory_integrity.py`
 
+## CI evidence
+
+- Workflow: `FDM360 Geo Regression`
+- Run: `26`
+- Commit: `cfb1d0d52a891d72dcdf5a1d46aba08e159f0808`
+- Result: `SUCCESS`
+- `pytest -q`: `SUCCESS`
+- Fix applied after run 25: repository root added to `PYTHONPATH` so `geo` and `audiovisual` modules are importable in GitHub Actions.
+
 ## Notes
 
-The profile specification files are now covered by regression tests, so changes to style isolation, map continuity, visual language and narrative continuity are no longer documentation-only.
+The profile specification files are covered by regression tests, so changes to style isolation, map continuity, visual language and narrative continuity are no longer documentation-only.
 
 The semantic template family is machine-readable and covered by regression tests. Templates cannot bypass verified geo anchors, Truth Locks or Geo QA.
 
 The FDM360 post-render layer is a profile-specific specialization over shared audiovisual integrity concepts. Generic mechanisms remain in `agente-youtube`; this repository stores only FDM360 bindings, gates and regression behavior.
 
 Reference styles 003–014 are registered as `UNRECOVERED`; their missing metadata must not be fabricated.
-
-The existing workflow runs `pytest -q`, so all repository tests are included in CI configuration. GitHub Actions execution/status still needs to be observed before claiming a passing run.
 
 ## Promotion rule
 

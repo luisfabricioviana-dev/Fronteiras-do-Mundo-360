@@ -1,0 +1,45 @@
+{
+  "profile": "FDM360",
+  "shared_core_repository": "luisfabricioviana-dev/agente-youtube",
+  "verified_core_commit": "e5163cb932ac1bf6128ca00988babfb06e3c2abf",
+  "verified_ci_run": 28,
+  "verified_ci_result": "SUCCESS",
+  "capabilities": {
+    "POST_RENDER_SEMANTIC_INTEGRITY": {
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/post_render_semantic_integrity.py"
+    },
+    "Render Observation Adapter": {
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/render_observation.py"
+    },
+    "SEMANTIC_BINDING_INTEGRITY_v1": {
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/semantic_binding_integrity.py"
+    },
+    "Camera-Meaning Integrity": {
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/post_render_semantic_integrity.py",
+      "implementation_note": "composed camera-meaning check"
+    },
+    "Iconography Truth Gate": {
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/iconography_truth_gate.py"
+    },
+    "AGENT_CAPABILITY_RUNTIME_v1": {
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/agent_capability_runtime.py"
+    },
+    "THEME_TO_FINAL_VIDEO_RUNTIME_v1": {
+      "status": "UNRESOLVED_SHARED_CORE"
+    },
+    "CROSS_AGENT_LEARNING_CORE_v1": {
+      "status": "UNRESOLVED_SHARED_CORE"
+    }
+  },
+  "rules": {
+    "profile_must_not_duplicate_resolved_shared_core": true,
+    "unresolved_shared_core_must_not_be_marked_implemented_locally": true,
+    "compatibility_lock_requires_green_core_ci": true
+  }
+}

@@ -1,0 +1,22 @@
+profile_id: FDM360
+production_preferences:
+  map_motion:
+    mode: CONTINUOUS
+    static_single_zoom: REJECTED
+    disconnected_frames: REJECTED
+  icons:
+    size: LARGE_ENOUGH_FOR_VERTICAL_MOBILE
+  arrows:
+    static_only: REJECTED
+    motion_required_when_semantically_relevant: true
+  real_footage:
+    usage: SELECTIVE
+    role: EVIDENCE_OR_CONTEXT
+  audio:
+    narration_language: pt-BR
+    narration_clarity: REQUIRED
+    narration_energy: STRONG
+    sfx_sync: REQUIRED_WHEN_USED
+  captions:
+    concise: true
+    safe_area: REQUIRED

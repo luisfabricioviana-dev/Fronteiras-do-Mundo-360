@@ -18,6 +18,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Visual Bible | FDM360 | CANONICAL_IMPLEMENTED |
 | Narrative rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Production preferences | FDM360 | CANONICAL_IMPLEMENTED |
+| Governed evolution cycle | FDM360 | CANONICAL_IMPLEMENTED |
 | US Presence South America regression case | FDM360 | CANONICAL_IMPLEMENTED |
 | Geo Motion profile configuration | FDM360 | CANONICAL_IMPLEMENTED |
 | Geospatial Truth Lock config/fixtures | FDM360 | CANONICAL_IMPLEMENTED |
@@ -83,10 +84,8 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ### FDM360
 - Workflow: `FDM360 Geo Regression`
-- Run: `34`
-- Commit: `ca37727b9a51567ea470d5df6cb94309f6610746`
-- Result: `SUCCESS`
-- `pytest -q`: `SUCCESS`
+- Last known green before evolution-cycle promotion: run `36`, commit `58aaf0cdacad64d214679e123ce3b67f98e38dbd`.
+- Evolution-cycle commits add only profile memory governance and regression assertions; current workflow result should be observed before updating this evidence line.
 
 ### Shared core (`agente-youtube`)
 - Workflow: `reference-regression`
@@ -107,6 +106,8 @@ The FDM360 post-render layer is a profile-specific specialization over shared au
 `integration/shared_core_compatibility.json` pins the profile to a known-green shared-core commit. All declared shared-core dependencies are resolved.
 
 Reference styles `003–014` remain `UNRECOVERED` after an explicit provenance audit. Their missing metadata must not be fabricated; recovery requires an explicit source or unambiguous prior record.
+
+The Performance Memory now contains a governed evolution cycle: an isolated observation remains a candidate; new failures become fixtures before generalization; validation requires recurrence and green regression; render QA, performance evidence, style references and channel identity remain separate layers.
 
 ## Promotion rule
 

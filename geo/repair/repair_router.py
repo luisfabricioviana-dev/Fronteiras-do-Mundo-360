@@ -11,10 +11,11 @@ class RepairPlan:
 def route_repairs(failures: Iterable[str]) -> RepairPlan:
     actions: List[str] = []
     hold_release = False
+
     for failure in failures:
-        if "anchor" in failure or "screen_space_drift" in failure:
+        if "anchor_mismatch" in failure or "screen_space_drift" in failure:
             actions.append("REANCHOR")
-        elif failure in {"disconnected_geo_frames", "camera_semantic_target_mismatch"}:
+        elif "disconnected_geo_frames" in failure or "camera_semantic_target_mismatch" in failure or "semantic_binding_mismatch" in failure:
             actions.append("RECOMPILE_CAMERA_PATH")
         elif "outline_basemap_misalignment" in failure:
             actions.append("REALIGN_BASEMAP")
@@ -24,4 +25,5 @@ def route_repairs(failures: Iterable[str]) -> RepairPlan:
         else:
             actions.append("MANUAL_REVIEW")
             hold_release = True
+
     return RepairPlan(list(dict.fromkeys(actions)), hold_release)

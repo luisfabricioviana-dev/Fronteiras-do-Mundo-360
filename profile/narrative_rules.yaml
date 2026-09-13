@@ -1,0 +1,14 @@
+profile_id: FDM360
+narrative_mode: GEO_DOCUMENTARY
+voiceover_first: true
+map_as_narrative: true
+rules:
+  - every_visual_beat_must_serve_narration
+  - geography_must_not_be_invented
+  - military_claims_require_evidence
+  - disputed_territory_requires_explicit_gate
+  - camera_motion_must_preserve_semantic_meaning
+  - payoff_must_not_overclaim_evidence
+continuity:
+  map_video_mode: CONTINUOUS_CAMERA_PATH
+  disconnected_scene_frames: BLOCKED

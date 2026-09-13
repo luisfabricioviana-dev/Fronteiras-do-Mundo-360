@@ -9,10 +9,12 @@ from shapely.validation import explain_validity
 
 import build_geo_truth_reference_bundle_v05 as b
 
-# Use the lighter official IGAC political-administrative department layer.
+# Operational national display geometry: official DANE MGN 2025 department layer.
+# IGAC remains the sovereignty/border reference, but is not a render dependency.
+b.SOURCES["colombia"]["authority"] = "DANE — Marco Geoestadístico Nacional 2025"
 b.SOURCES["colombia"]["service"] = (
-    "https://mapas.igac.gov.co/server/rest/services/atlas/"
-    "politicoadministrativo/MapServer/5"
+    "https://geoportal.dane.gov.co/mparcgis/rest/services/Divipola/"
+    "Serv_DIVIPOLA_MGN_2025/FeatureServer/319"
 )
 
 

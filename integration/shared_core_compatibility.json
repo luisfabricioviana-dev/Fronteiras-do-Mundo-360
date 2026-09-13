@@ -1,8 +1,8 @@
 {
   "profile": "FDM360",
   "shared_core_repository": "luisfabricioviana-dev/agente-youtube",
-  "verified_core_commit": "e5163cb932ac1bf6128ca00988babfb06e3c2abf",
-  "verified_ci_run": 28,
+  "verified_core_commit": "97fb894e61d93e75270f3b9c95cb69e257616ed2",
+  "verified_ci_run": 34,
   "verified_ci_result": "SUCCESS",
   "capabilities": {
     "POST_RENDER_SEMANTIC_INTEGRITY": {
@@ -31,10 +31,14 @@
       "path": "contracts/agent_capability_runtime.py"
     },
     "THEME_TO_FINAL_VIDEO_RUNTIME_v1": {
-      "status": "UNRESOLVED_SHARED_CORE"
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/pipeline_runtime.py",
+      "implementation_note": "ThemeToFinalVideoInput + compile_theme_to_final_video"
     },
     "CROSS_AGENT_LEARNING_CORE_v1": {
-      "status": "UNRESOLVED_SHARED_CORE"
+      "status": "RESOLVED_SHARED_CORE",
+      "path": "contracts/core_governance.py",
+      "implementation_note": "CrossAgentLearningCandidate + evaluate_cross_agent_learning"
     }
   },
   "rules": {

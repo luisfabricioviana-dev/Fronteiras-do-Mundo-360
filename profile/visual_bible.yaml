@@ -1,0 +1,22 @@
+profile_id: FDM360
+visual_bible_status: PARTIAL_CANON
+map_style:
+  monochrome_black_white: REJECTED
+  continuous_camera_motion: REQUIRED
+  disconnected_static_frames: REJECTED
+  progressive_zoom_pan: PREFERRED
+  geo_anchor_integrity: REQUIRED
+imagery:
+  approved_quality: HIGH
+  blurry_assets: REJECTED
+  decorative_broll_without_semantic_function: REJECTED
+captions:
+  length: SHORT
+  vertical_position: SLIGHTLY_ABOVE_DEFAULT
+branding:
+  handle: '@fronteirasdomundo360'
+  final_finish_surface: CANVA
+voice:
+  language: pt-BR
+  clarity: REQUIRED
+  strong_fast_delivery: PREFERRED

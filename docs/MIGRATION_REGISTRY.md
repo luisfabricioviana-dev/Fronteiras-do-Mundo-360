@@ -24,7 +24,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Geo Asset Registry | FDM360 | CANONICAL_IMPLEMENTED |
 | Motion Coherence + Geo Anchor QA profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Disputed Territory Gate profile rules | FDM360 | CANONICAL_IMPLEMENTED |
-| Geo Repair Router profile rules | FDM360 | NEEDS_PORTING |
+| Geo Repair Router profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | STRAIT_REVEAL | FDM360 | CANONICAL_SPEC |
 | MILITARY_BASE_REVEAL | FDM360 | CANONICAL_SPEC |
 | RESOURCE_CORRIDOR | FDM360 | CANONICAL_SPEC |
@@ -49,6 +49,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `geo/truth_locks/fdm360_truth_locks.py`
 - `geo/asset_registry/fdm360_geo_asset_registry.py`
 - `geo/qa/fdm360_geo_qa.py`
+- `geo/repair/repair_router.py`
 - `regressions/fixtures/us_presence_south_america_v1.json`
 - `tests/test_geo_motion_truth_stack.py`
 - `.github/workflows/geo-regression.yml`
@@ -56,6 +57,8 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 ## Notes
 
 The semantic template family remains specification-level because the connector blocked the consolidated template manifest write. Do not mark those templates implemented until a persisted machine-readable registry and regression coverage exist.
+
+GitHub Actions workflow/status was not exposed for the latest commits at the time of this update. Therefore repository persistence and test definitions are confirmed, but CI pass status is not yet claimed.
 
 ## Promotion rule
 

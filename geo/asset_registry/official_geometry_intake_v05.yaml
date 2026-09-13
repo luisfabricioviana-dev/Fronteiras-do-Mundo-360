@@ -1,51 +1,67 @@
 bundle: GEO_TRUTH_REFERENCE_BUNDLE_v05
 normalized_crs: EPSG:4326
-status: BLOCK
+status: PASS
 countries:
   brazil:
     authority: IBGE
     source_url: https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2024/Brasil/BR_Pais_2024.zip
-    source_status: OFFICIAL_SOURCE_IDENTIFIED
+    source_status: OFFICIAL_SOURCE_LOADED_AND_HASHED
     source_year: 2024
     source_format: ZIP_SHAPEFILE
-    raw_file_sha256: null
-    native_crs: null
-    normalized_geometry_sha256: null
-    geometry_loaded: false
+    raw_file_sha256: e84c4d4ab199e646b5a180e0f5b7a991fe4c3d424dff8ae3dcf4495992c128d5
+    native_crs: EPSG:4674
+    normalized_crs: EPSG:4326
+    normalized_geometry_sha256: ef57940d055ee4b7647a2b0d85e9f9e3fac5eeb40966dae50dea9824e730240f
+    geometry_loaded: true
+    geometry_valid: true
+    feature_count_raw: 1
   colombia:
-    authority: IGAC
-    source_url: https://mapas.igac.gov.co/server/rest/services/ObservatorioInmobiliario/DepartamentosOIC/FeatureServer/0
-    source_status: OFFICIAL_POLYGON_SOURCE_SELECTED
-    source_format: ARCGIS_FEATURE_SERVICE_POLYGON
-    native_crs: EPSG:4686
-    raw_file_sha256: null
-    normalized_geometry_sha256: null
-    geometry_loaded: false
-    derivation: National display geometry must be derived by dissolving the official department polygons into one country geometry, preserving source provenance and recording the normalized geometry hash.
-    caution: IGAC border-line products carry a restriction against use for exact point location or area/distance calculation. The v05 display geometry therefore uses official department polygons as the operational source; it remains unsuitable for legal delimitation claims.
+    authority: DANE — Marco Geoestadístico Nacional 2025
+    source_service: https://geoportal.dane.gov.co/mparcgis/rest/services/Divipola/Serv_DIVIPOLA_MGN_2025/FeatureServer/319
+    source_status: OFFICIAL_SOURCE_LOADED_AND_HASHED
+    source_format: ARCGIS_FEATURE_SERVICE_CHUNKED_GEOJSON_EXPORT_ZIP
+    native_crs: EPSG:3857
+    normalized_crs: EPSG:4326
+    raw_file_sha256: c018afcf84038be7e88b91430c3bf98fc027c1d6fe5722ff0e9372630649b5e3
+    normalized_geometry_sha256: f6aefb92519563b3ec20a0e8265e178950a716269f038953a21097db9da5eb77
+    geometry_loaded: true
+    geometry_valid: true
+    feature_count_raw: 33
+    derivation: dissolve_all_official_polygons
+    border_reference_note: IGAC remains the sovereignty/border reference. DANE MGN 2025 is the operational render geometry and must not be interpreted as a legal delimitation product.
   peru:
     authority: Instituto Geografico Nacional / IDEP
-    source_url: https://www.idep.gob.pe/geoportal/rest/services/DATOS_GEOESPACIALES/PERU/FeatureServer/0
-    source_status: OFFICIAL_FEATURE_SERVICE_IDENTIFIED
-    source_format: ARCGIS_FEATURE_SERVICE_POLYGON
+    source_service: https://www.idep.gob.pe/geoportal/rest/services/DATOS_GEOESPACIALES/PERU/FeatureServer/0
+    source_status: OFFICIAL_SOURCE_LOADED_AND_HASHED
+    source_format: ARCGIS_FEATURE_SERVICE_GEOJSON_EXPORT
     native_crs: EPSG:4326
-    raw_file_sha256: null
-    normalized_geometry_sha256: null
-    geometry_loaded: false
+    normalized_crs: EPSG:4326
+    raw_file_sha256: 7e32825a15d664bb37711265abe17b28506a96d48530aaa3590179317e0c6bd3
+    normalized_geometry_sha256: cde8aeea3f3ce869f56f474e2c8678c989607080e5e2855ef3f01100be9ab04e
+    geometry_loaded: true
+    geometry_valid: true
+    feature_count_raw: 1
   ecuador:
-    authority: Instituto Geografico Militar
-    source_url: https://www.geoportaligm.gob.ec/portal/index.php/descargas/enlaces-google-earth/
-    source_status: OFFICIAL_VECTOR_SOURCE_SELECTED
-    selected_layer: Limite Internacional
-    source_format: KML
-    source_year: 2013
-    source_scale: 1:1000000
-    native_crs: EPSG:4326_KML_WGS84
-    raw_file_sha256: null
-    normalized_geometry_sha256: null
-    geometry_loaded: false
-    supporting_service_url: https://www.geoportaligm.gob.ec/geoportal-igm/
-    note: IGM explicitly publishes the Limite Internacional KML as official national-scale geographic information and also exposes national WFS services. The exact downloaded KML bytes must be captured and hashed before geometry_loaded may become true.
-pre_render_geo_truth: BLOCK
+    authority: Instituto Geografico Militar / IGM Ecuador
+    source_url: https://www.geoportaligm.gob.ec/nacional/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=igm%3Aprovincias&outputFormat=application%2Fjson&srsName=EPSG%3A4326
+    verification_boundary_url: https://www.geoportaligm.gob.ec/nacional/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=igm%3Alimite&outputFormat=application%2Fjson&srsName=EPSG%3A4326
+    source_status: OFFICIAL_SOURCE_LOADED_AND_HASHED
+    source_format: OGC_WFS_GEOJSON_PROVINCES_DISSOLVED
+    native_crs: EPSG:4326
+    normalized_crs: EPSG:4326
+    raw_file_sha256: 2e78f40bb83dc0d11a74e6abc056166a51b4b4478f2ecfcacddfd16bdeb67808
+    verification_boundary_raw_sha256: b9f2cb04a3e43e8308d7acf7174eb6c1bb3f503049ddf790bce608ffe0293c0b
+    normalized_geometry_sha256: f21a2f9d40130f4073cbe54f1477a7712aa6558c0b6681aa7d7f96f2c17c7feb
+    geometry_loaded: true
+    geometry_valid: true
+    feature_count_raw: 32
+    verification_boundary_feature_count: 1
+    derivation: dissolve_official_igm_province_polygons
+pre_render_geo_truth: PASS
 post_render_geo_truth: NOT_RUN
 publication_ready: false
+evidence_artifact:
+  workflow_run_id: 34774202581
+  artifact_id: 10322718276
+  artifact_digest: sha256:83ad29718259efdba20308e55e5c7fcacf95bba4dcde8886c78ae707e15d32ff
+  head_commit: 0c1a0ce48efa587f84fbd9d670f88ad45cd0addb

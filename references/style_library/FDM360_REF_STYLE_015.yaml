@@ -1,0 +1,21 @@
+id: FDM360_REF_STYLE_015
+name: SATELLITE_GEO_BASE_ACCESS_SOVEREIGNTY_EXPLAINER
+status: REFERENCE_ONLY
+source: snapinsta-1789143586453.mp4
+provenance_status: RECOVERED
+governance:
+  profile_specific: true
+  promote_to_identity_automatically: false
+  new_video_creates_rule: false
+metadata:
+  duration_seconds: 61.14
+  resolution: 720x1280
+  fps: 30
+  video_codec: H.264 High
+  color_space: BT.709
+  audio_codec: HE-AAC stereo 44.1 kHz
+  audio_lufs_integrated: -14.3
+  audio_lra_lu: 2.1
+  audio_true_peak_dbtp: -0.8
+  audio_lr_correlation: 0.981
+  audio_side_vs_mid_db: -20.2

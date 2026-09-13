@@ -1,0 +1,19 @@
+{
+  "case_id": "FDM360_US_PRESENCE_SOUTH_AMERICA_001",
+  "continuous_camera_required": true,
+  "targets": [
+    {"id": "colombia", "expected_anchor": "colombia"},
+    {"id": "ecuador", "expected_anchor": "ecuador"},
+    {"id": "callao", "expected_anchor": "callao_peru"},
+    {"id": "iquitos", "expected_anchor": "iquitos_peru"},
+    {"id": "brazil", "expected_anchor": "brazil"}
+  ],
+  "known_failures": [
+    "label_displacement",
+    "missing_geo_anchor",
+    "outline_basemap_misalignment",
+    "screen_space_drift",
+    "camera_semantic_target_mismatch"
+  ],
+  "editorial_lock": "Evidence does not by itself establish a plan to surround Brazil."
+}

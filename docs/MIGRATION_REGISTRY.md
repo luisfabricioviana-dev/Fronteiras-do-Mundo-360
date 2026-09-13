@@ -24,6 +24,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | Geospatial Truth Lock config/fixtures | FDM360 | CANONICAL_IMPLEMENTED |
 | Military Event Truth Lock config/fixtures | FDM360 | CANONICAL_IMPLEMENTED |
 | Geo Asset Registry | FDM360 | CANONICAL_IMPLEMENTED |
+| GEO_TRUTH_REFERENCE_BUNDLE_v05 / PRE_RENDER_GEO_TRUTH | FDM360 | CANONICAL_IMPLEMENTED |
 | Motion Coherence + Geo Anchor QA profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Disputed Territory Gate profile rules | FDM360 | CANONICAL_IMPLEMENTED |
 | Geo Repair Router profile rules | FDM360 | CANONICAL_IMPLEMENTED |
@@ -60,6 +61,13 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `geo/motion/fdm360_geo_motion_profile.py`
 - `geo/truth_locks/fdm360_truth_locks.py`
 - `geo/asset_registry/fdm360_geo_asset_registry.py`
+- `geo/asset_registry/official_geometry_intake_v05.yaml`
+- `geo/asset_registry/peru_anchor_intake_v05.yaml`
+- `geo/evidence/GEO_TRUTH_REFERENCE_BUNDLE_v05.json`
+- `scripts/build_geo_truth_reference_bundle_v05.py`
+- `scripts/run_geo_truth_reference_bundle_v05.py`
+- `.github/workflows/geo-truth-reference-bundle-v05.yml`
+- `tests/test_official_geometry_intake_v05.py`
 - `geo/qa/fdm360_geo_qa.py`
 - `geo/repair/repair_router.py`
 - `geo/templates/template_registry.py`
@@ -82,10 +90,25 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ## CI evidence
 
-### FDM360
+### FDM360 — canonical regression suite
 - Workflow: `FDM360 Geo Regression`
-- Last known green before evolution-cycle promotion: run `36`, commit `58aaf0cdacad64d214679e123ce3b67f98e38dbd`.
-- Evolution-cycle commits add only profile memory governance and regression assertions; current workflow result should be observed before updating this evidence line.
+- Run: `62`
+- Commit: `f3344df6fe99b1b72ff1cf7666bca260d755b2df`
+- Result: `SUCCESS`
+- `pytest -q`: `SUCCESS`
+
+### FDM360 — GEO_TRUTH_REFERENCE_BUNDLE_v05
+- Workflow: `FDM360 Geo Truth Reference Bundle v05`
+- Run: `5` (`34774202581`)
+- Head commit: `0c1a0ce48efa587f84fbd9d670f88ad45cd0addb`
+- Result: `SUCCESS`
+- Artifact ID: `10322718276`
+- Artifact digest: `sha256:83ad29718259efdba20308e55e5c7fcacf95bba4dcde8886c78ae707e15d32ff`
+- `PRE_RENDER_GEO_TRUTH = PASS`
+- All four official operational country geometries loaded, valid, normalized to `EPSG:4326`, and locked by raw + normalized SHA-256.
+- Callao and Iquitos resolved uniquely from the official IGN/IDEP capital layer and confirmed as contained in Peru.
+- `POST_RENDER_GEO_TRUTH = NOT_RUN`.
+- `PUBLICATION_READY = FALSE`.
 
 ### Shared core (`agente-youtube`)
 - Workflow: `reference-regression`
@@ -107,7 +130,9 @@ The FDM360 post-render layer is a profile-specific specialization over shared au
 
 Reference styles `003–014` remain `UNRECOVERED` after an explicit provenance audit. Their missing metadata must not be fabricated; recovery requires an explicit source or unambiguous prior record.
 
-The Performance Memory now contains a governed evolution cycle: an isolated observation remains a candidate; new failures become fixtures before generalization; validation requires recurrence and green regression; render QA, performance evidence, style references and channel identity remain separate layers.
+The Performance Memory contains a governed evolution cycle: an isolated observation remains a candidate; new failures become fixtures before generalization; validation requires recurrence and green regression; render QA, performance evidence, style references and channel identity remain separate layers.
+
+`GEO_TRUTH_REFERENCE_BUNDLE_v05` is canonical for pre-render truth only. It authorizes compilation of v05 from the approved Geo Asset Registry but does not authorize publication. `POST_RENDER_GEO_TRUTH` must be evaluated against the rendered MP4 before any publication-ready state can be considered.
 
 ## Promotion rule
 

@@ -1,0 +1,40 @@
+bundle: GEO_TRUTH_REFERENCE_BUNDLE_v05
+normalized_crs: EPSG:4326
+status: BLOCK
+countries:
+  brazil:
+    authority: IBGE
+    source_url: https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2024/Brasil/BR_Pais_2024.zip
+    source_status: OFFICIAL_SOURCE_IDENTIFIED
+    raw_file_sha256: null
+    native_crs: null
+    normalized_geometry_sha256: null
+    geometry_loaded: false
+  colombia:
+    authority: IGAC
+    source_url: https://mapas.igac.gov.co/server/rest/services/limites/limites/MapServer
+    source_status: OFFICIAL_SERVICE_IDENTIFIED_GEOMETRY_SELECTION_PENDING
+    raw_file_sha256: null
+    native_crs: null
+    normalized_geometry_sha256: null
+    geometry_loaded: false
+    caution: Border data published by IGAC carries a restriction against use for exact point location or area/distance calculation; select and validate the appropriate national-boundary representation before loading.
+  peru:
+    authority: Instituto Geografico Nacional / IDEP
+    source_url: https://www.idep.gob.pe/geoportal/rest/services/DATOS_GEOESPACIALES/PERU/FeatureServer/0
+    source_status: OFFICIAL_FEATURE_SERVICE_IDENTIFIED
+    raw_file_sha256: null
+    native_crs: EPSG:4326
+    normalized_geometry_sha256: null
+    geometry_loaded: false
+  ecuador:
+    authority: Instituto Geografico Militar
+    source_url: null
+    source_status: OFFICIAL_VECTOR_SOURCE_NOT_YET_RESOLVED
+    raw_file_sha256: null
+    native_crs: null
+    normalized_geometry_sha256: null
+    geometry_loaded: false
+pre_render_geo_truth: BLOCK
+post_render_geo_truth: NOT_RUN
+publication_ready: false

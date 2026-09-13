@@ -34,6 +34,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 | DISPUTED_BORDER | FDM360 | CANONICAL_IMPLEMENTED |
 | ISLAND_STRATEGIC_REVEAL | FDM360 | CANONICAL_IMPLEMENTED |
 | Reference Style Library entries | FDM360 | CANONICAL_IMPLEMENTED |
+| Reference provenance audit | FDM360 | CANONICAL_IMPLEMENTED |
 | Performance Memory | FDM360 | CANONICAL_IMPLEMENTED |
 | FDM360 post-render semantic integrity profile | FDM360 | CANONICAL_IMPLEMENTED |
 | FDM360 publication gate + repair binding | FDM360 | CANONICAL_IMPLEMENTED |
@@ -72,6 +73,7 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 - `references/style_library/FDM360_REF_STYLE_002.yaml`
 - `references/style_library/FDM360_REF_STYLE_015.yaml`
 - `references/style_library/UNRECOVERED_REFERENCES.yaml`
+- `docs/REFERENCE_PROVENANCE_AUDIT_2026-09-13.md`
 - `performance/PERFORMANCE_MEMORY.md`
 - `tests/test_reference_memory_integrity.py`
 - `integration/shared_core_compatibility.json`
@@ -81,8 +83,8 @@ Registro de migração de conhecimento do projeto para o repositório canônico.
 
 ### FDM360
 - Workflow: `FDM360 Geo Regression`
-- Run: `31`
-- Commit: `1d69b9f39bd5f6af7de031df7bde725738c42331`
+- Run: `34`
+- Commit: `ca37727b9a51567ea470d5df6cb94309f6610746`
 - Result: `SUCCESS`
 - `pytest -q`: `SUCCESS`
 
@@ -102,9 +104,9 @@ The semantic template family is machine-readable and covered by regression tests
 
 The FDM360 post-render layer is a profile-specific specialization over shared audiovisual integrity concepts. Generic mechanisms remain in `agente-youtube`; this repository stores only FDM360 bindings, gates and regression behavior.
 
-`integration/shared_core_compatibility.json` pins the profile to a known-green shared-core commit. All declared shared-core dependencies are now resolved.
+`integration/shared_core_compatibility.json` pins the profile to a known-green shared-core commit. All declared shared-core dependencies are resolved.
 
-Reference styles 003–014 are registered as `UNRECOVERED`; their missing metadata must not be fabricated.
+Reference styles `003–014` remain `UNRECOVERED` after an explicit provenance audit. Their missing metadata must not be fabricated; recovery requires an explicit source or unambiguous prior record.
 
 ## Promotion rule
 

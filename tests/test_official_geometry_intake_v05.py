@@ -87,5 +87,8 @@ def test_canonical_evidence_bundle_is_pass_but_not_publication_ready():
 
 def test_post_render_and_publication_gates_remain_closed():
     text = read_text("geo/asset_registry/official_geometry_intake_v05.yaml")
-    assert "post_render_geo_truth: NOT_RUN" in text
+    # Post-render evidence was subsequently attached to the canonical YAML.
+    # The historical JSON bundle retains its earlier NOT_RUN snapshot.
+    assert "post_render_geo_truth: PASS" in text
+    assert "qa_record: cases/us_presence_south_america/V05_1_POST_RENDER_GEO_QA.md" in text
     assert "publication_ready: false" in text
